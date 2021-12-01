@@ -9,18 +9,34 @@ export default class extends Component {
         }
     }
 
+    onClickButton(e) {
+        // this.state.value = this.state.value + this.props.step; -> 쓰지말기
+
+        this.setState({
+            val: this.state.val + this.state.step
+        })
+    }
+
+    onClickButtonMinus(e) {
+        // this.state.value = this.state.value + this.props.step; -> 쓰지말기
+
+        this.setState({
+            val: this.state.val - this.state.step
+        })
+    }
+
     render() {
         return (
             <div>
-                <button onClick={(e) => {
-                    this.setState({
-                        val: this.state.val + this.state.step
-                    })
-                }}>
+                <button onClick={ this.onClickButton.bind(this) }>
                     <strong>+</strong>
                 </button>
                 {' '}
                 <span>{this.state.val}</span>
+                {' '}
+                <button onClick={ this.onClickButtonMinus.bind(this) }>
+                    <strong>-</strong>
+                </button>
             </div>
         );
     }
