@@ -7,7 +7,15 @@ export default function Message({no, name, message}) {
         <li className={styles.Message}>
             <strong>{name}</strong>
             <p>
-                {message}
+                {
+                    message && message.split('\n').map((line, index) => index > 0 ? 
+                    <span key={`${no}-${index}`}>
+                        <br />
+                        {line}
+                    </span> :
+                    {line}
+                    )
+                }
             </p>
             <strong/>
             <a>삭제</a>

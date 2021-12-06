@@ -1,7 +1,31 @@
 import React, {useRef} from 'react';
 import styles from './assets/scss/WriteForm.scss';
 
-export default function WriteForm() {
+export default function WriteForm(notifyMessage) {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        try {
+            Array.from(e.target, (input) => {
+                if(input.value === '') {
+                    throw `validation ${input.placeholder} is empty`;
+                }
+
+                return {n: input.name, v: input.value};
+            })
+            .filter(({n}) => n !== '')
+            .reduce((res, {n, v}) => {
+                res[n] = v; 
+                return res; 
+            },{});
+        
+            notifyMessage.add(message);
+        } catch(err){
+            console.log(err);
+        }
+    
+    }
+
 
     return (
         <form className={styles.WriteForm}>
