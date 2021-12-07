@@ -10,4 +10,4 @@ export default function() {
             <input type='submit' value='등록' />
         </form>
     );
-} 
+}

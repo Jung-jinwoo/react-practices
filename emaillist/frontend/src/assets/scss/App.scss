@@ -17,7 +17,7 @@ ul, ol {
 
 :global(#root) {
     width: 100%;
-
+    
     :global(.App) {
         width: 300px;
         margin: 5px auto 0 auto;
@@ -27,3 +27,4 @@ ul, ol {
         padding: 7px;
     }
 }
+
